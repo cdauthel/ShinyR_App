@@ -92,16 +92,11 @@ server <- function(input, output){
   output$distPlot <- renderPlot({
     subsetted <- reactive({
       req(input$species)
-      data |> filter(Species_name %in% input$species)
+      data |> filter((Species_name %in% input$species) & (Dutch_soil_code %in% input$soil) & (Soil_catagory %in% input$quality))
     })
-    p <- plot_ly(subsetted(), y = as.formula(paste("~", input$wood, "_", input$composition, sep = "")), color = I("black"), 
-                 alpha = 0.1, boxpoints = "suspectedoutliers")
-    p1 <- p %>% add_boxplot(x = "Overall")
-    p2 <- p %>% add_boxplot(x = ~Species_name)
-    subplot(
-      p1, p2, shareY = TRUE,
-      widths = c(0.2, 0.8), margin = 0
-    ) %>% hide_legend()
+    ggplot(subsetted(), aes_string("Species_name", paste(input$wood, input$composition, sep = "_"))) +
+      geom_boxplot(aes(fill = Soil_catagory)) +
+      theme_classic()
     
   })
   
