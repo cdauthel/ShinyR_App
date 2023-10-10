@@ -1,0 +1,9 @@
+sample-ID,ID of the sample
+plot ID,ID of the plot
+Tree species,English species name
+Sc. name,Scientific species name
+Dutch soil code,Code of the 1:50 000 soil map of The Netherlands
+lat,decimal latitude coordinate
+long,decimal longitude coordinate
+Top row: tree compartment,
+"Second row: analysed element, all in g per kg",
