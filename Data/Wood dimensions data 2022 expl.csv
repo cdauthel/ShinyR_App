@@ -1,0 +1,5 @@
+Tree species,English species name
+Sc. name,Scientific species name
+D over bark,Diameter of stem section over bark in cm
+D heartwood,Diameter of heartwood of stem section in cm
+Bark thickness,Thickness of bark of stem section (equals D over bark minus D under bark)
